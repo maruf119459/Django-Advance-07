@@ -1,0 +1,14 @@
+from django.urls import include, path
+from rest_framework import routers
+from .views import ProductViewset , ProductReviewViewSet
+
+router = routers.DefaultRouter()
+router.register('products', ProductViewset)
+router.register('reviews', ProductReviewViewSet)
+
+urlpatterns = [
+    path('', include(router.urls)),
+    path('api_auth/',include('rest_framework.urls')),
+]
+
+# username: admin   ; password : admin123
